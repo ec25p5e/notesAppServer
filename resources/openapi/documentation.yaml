@@ -1,0 +1,8 @@
+openapi: "3.0.3"
+info:
+  title: "notesAppServerV3 API"
+  description: "notesAppServerV3 API"
+  version: "1.0.0"
+servers:
+- url: "https://notesAppServerV3"
+paths: {}
