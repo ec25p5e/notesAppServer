@@ -1,6 +1,7 @@
 package com.ec25p5e.plugins
 
 import com.ec25p5e.routes.*
+import com.ec25p5e.service.CategoryService
 import com.ec25p5e.service.NoteService
 import com.ec25p5e.service.PostService
 import com.ec25p5e.service.UserService
@@ -16,6 +17,7 @@ fun Application.configureRouting(appConfig: HoconApplicationConfig) {
     val userService: UserService by inject(UserService::class.java)
     val postService: PostService by inject(PostService::class.java)
     val noteService: NoteService by inject(NoteService::class.java)
+    val categoryService: CategoryService by inject(CategoryService::class.java)
 
     val jwtIssuer = appConfig.property("jwt.domain").getString()
     val jwtAudience = appConfig.property("jwt.audience").getString()
@@ -46,6 +48,11 @@ fun Application.configureRouting(appConfig: HoconApplicationConfig) {
         getNotes(noteService)
         pushNotes(noteService)
         createNote(noteService)
+        deleteNote(noteService)
+
+        // Category routes
+        createCategory(categoryService)
+        getCategories(categoryService)
 
         static {
             resource("static")

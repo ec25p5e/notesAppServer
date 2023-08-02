@@ -1,9 +1,7 @@
 package com.ec25p5e.data.models
 
-import com.ec25p5e.data.requests.PushNotesRequest
 import org.bson.codecs.pojo.annotations.BsonId
 import org.bson.types.ObjectId
-import org.litote.kmongo.push
 
 data class Note(
     val userId: String,

@@ -1,9 +1,9 @@
 package com.ec25p5e.data.repository.note
 
 import com.ec25p5e.data.models.Note
-import com.ec25p5e.data.requests.CreateNoteRequest
-import com.ec25p5e.data.requests.NoteRequest
-import com.ec25p5e.data.requests.PushNotesRequest
+import com.ec25p5e.data.requests.note.CreateNoteRequest
+import com.ec25p5e.data.requests.note.DeleteNoteRequest
+import com.ec25p5e.data.responses.PushNotesResponse
 import com.ec25p5e.data.responses.BasicApiResponse
 import com.ec25p5e.data.responses.NoteResponse
 import com.ec25p5e.util.ApiResponseMessages.PUSH_INSERTED_NOTES
@@ -34,7 +34,7 @@ class NoteRepositoryImpl(
             }
     }
 
-    override suspend fun pushNotes(notes: List<PushNotesRequest>): BasicApiResponse<Unit> {
+    override suspend fun pushNotes(notes: List<PushNotesResponse>): BasicApiResponse<Unit> {
         notesDb.insertMany(
             notes.map {
                 it.toNote(it)
@@ -50,5 +50,12 @@ class NoteRepositoryImpl(
 
     override suspend fun createNote(note: CreateNoteRequest) {
         notesDb.insertOne(note.toNote(note))
+    }
+
+    override suspend fun deleteNote(note: DeleteNoteRequest) {
+        notesDb.deleteOne(
+            Note::noteId `eq` note.noteId,
+            Note::userId `eq` note.userId
+        )
     }
 }

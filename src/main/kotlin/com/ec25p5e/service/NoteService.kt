@@ -1,9 +1,9 @@
 package com.ec25p5e.service
 
-import com.ec25p5e.data.models.Note
 import com.ec25p5e.data.repository.note.NoteRepository
-import com.ec25p5e.data.requests.CreateNoteRequest
-import com.ec25p5e.data.requests.PushNotesRequest
+import com.ec25p5e.data.requests.note.CreateNoteRequest
+import com.ec25p5e.data.requests.note.DeleteNoteRequest
+import com.ec25p5e.data.responses.PushNotesResponse
 import com.ec25p5e.data.responses.BasicApiResponse
 import com.ec25p5e.data.responses.NoteResponse
 
@@ -15,11 +15,15 @@ class NoteService(
         return noteRepository.getNotes(userId)
     }
 
-    suspend fun pushNotes(notes: List<PushNotesRequest>): BasicApiResponse<Unit> {
+    suspend fun pushNotes(notes: List<PushNotesResponse>): BasicApiResponse<Unit> {
         return noteRepository.pushNotes(notes)
     }
 
     suspend fun createNote(note: CreateNoteRequest) {
-        return noteRepository.createNote(note)
+        noteRepository.createNote(note)
+    }
+
+    suspend fun deleteNote(note: DeleteNoteRequest) {
+        noteRepository.deleteNote(note)
     }
 }

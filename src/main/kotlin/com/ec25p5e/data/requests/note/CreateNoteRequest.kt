@@ -1,9 +1,8 @@
-package com.ec25p5e.data.requests
+package com.ec25p5e.data.requests.note
 
 import com.ec25p5e.data.models.Note
 
-data class PushNotesRequest(
-    val noteId: String,
+data class CreateNoteRequest(
     val userId: String,
     val title: String,
     val content: String,
@@ -13,22 +12,19 @@ data class PushNotesRequest(
     val categoryId: Int,
 ) {
 
-    fun toNote(pushNote: PushNotesRequest): Note {
+    fun toNote(createNote: CreateNoteRequest): Note {
         return Note(
-            userId = pushNote.userId,
-            title = pushNote.title,
-            content = pushNote.content,
-            timestamp = pushNote.timestamp,
-            color = pushNote.color,
-            isArchived = pushNote.isArchived,
-            categoryId = pushNote.categoryId,
+            userId = createNote.userId,
+            title = createNote.title,
+            content = createNote.content,
+            timestamp = createNote.timestamp,
+            color = createNote.color,
+            isArchived = createNote.isArchived,
+            categoryId = createNote.categoryId,
         )
     }
 
     fun isIncomplete(): Boolean {
-        if(noteId.isBlank())
-            return true
-
         if(userId.isBlank())
             return true
 

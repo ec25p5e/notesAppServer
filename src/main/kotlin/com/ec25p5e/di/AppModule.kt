@@ -1,11 +1,14 @@
 package com.ec25p5e.di
 
+import com.ec25p5e.data.repository.category.CategoryRepository
+import com.ec25p5e.data.repository.category.CategoryRepositoryImpl
 import com.ec25p5e.data.repository.note.NoteRepository
 import com.ec25p5e.data.repository.note.NoteRepositoryImpl
 import com.ec25p5e.data.repository.post.PostRepository
 import com.ec25p5e.data.repository.post.PostRepositoryImpl
 import com.ec25p5e.data.repository.user.UserRepositoryImpl
 import com.ec25p5e.data.repository.user.UserRepository
+import com.ec25p5e.service.CategoryService
 import com.ec25p5e.service.NoteService
 import com.ec25p5e.service.PostService
 import com.ec25p5e.service.UserService
@@ -35,10 +38,15 @@ val mainModule = module {
         NoteRepositoryImpl(get())
     }
 
+    single<CategoryRepository> {
+        CategoryRepositoryImpl(get())
+    }
+
     // Services
     single { UserService(get()) }
     single { PostService(get()) }
     single { NoteService(get()) }
+    single { CategoryService(get()) }
 
     single { Gson() }
 }
