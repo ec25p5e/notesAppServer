@@ -21,7 +21,8 @@ data class PushNotesRequest(
             timestamp = pushNote.timestamp,
             color = pushNote.color,
             isArchived = pushNote.isArchived,
-            categoryId = pushNote.categoryId
+            categoryId = pushNote.categoryId,
+            noteIdLocal = pushNote.noteId
         )
     }
 

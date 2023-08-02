@@ -7,6 +7,7 @@ import org.litote.kmongo.push
 
 data class Note(
     val userId: String,
+    val noteIdLocal: String,
     val title: String,
     val content: String,
     val timestamp: Long,

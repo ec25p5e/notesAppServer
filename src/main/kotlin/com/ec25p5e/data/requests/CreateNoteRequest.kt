@@ -21,11 +21,15 @@ data class CreateNoteRequest(
             timestamp = createNote.timestamp,
             color = createNote.color,
             isArchived = createNote.isArchived,
-            categoryId = createNote.categoryId
+            categoryId = createNote.categoryId,
+            noteIdLocal = createNote.noteId
         )
     }
 
     fun isIncomplete(): Boolean {
+        if(noteId.isBlank())
+            return true
+
         if(userId.isBlank())
             return true
 

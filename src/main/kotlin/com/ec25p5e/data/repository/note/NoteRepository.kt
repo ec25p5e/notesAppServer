@@ -12,5 +12,5 @@ interface NoteRepository {
 
     suspend fun pushNotes(notes: List<PushNotesRequest>): BasicApiResponse<Unit>
 
-    suspend fun createNote(note: CreateNoteRequest): Note?
+    suspend fun createNote(note: CreateNoteRequest)
 }

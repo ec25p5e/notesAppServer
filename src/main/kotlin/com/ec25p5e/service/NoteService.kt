@@ -19,7 +19,7 @@ class NoteService(
         return noteRepository.pushNotes(notes)
     }
 
-    suspend fun createNote(note: CreateNoteRequest): Note? {
+    suspend fun createNote(note: CreateNoteRequest) {
         return noteRepository.createNote(note)
     }
 }

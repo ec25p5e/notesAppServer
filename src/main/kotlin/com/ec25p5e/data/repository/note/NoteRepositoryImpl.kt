@@ -48,8 +48,7 @@ class NoteRepositoryImpl(
         )
     }
 
-    override suspend fun createNote(note: CreateNoteRequest): Note? {
+    override suspend fun createNote(note: CreateNoteRequest) {
         notesDb.insertOne(note.toNote(note))
-        return notesDb.findOne(Note::noteId `eq` note.noteId)
     }
 }
