@@ -1,4 +1,4 @@
-package com.example.data.requests
+package com.ec25p5e.data.requests
 
 data class LoginRequest(
     val email: String,

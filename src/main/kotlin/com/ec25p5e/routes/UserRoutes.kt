@@ -3,7 +3,7 @@ package com.ec25p5e.routes
 import com.ec25p5e.service.UserService
 import com.ec25p5e.util.ApiResponseMessages
 import com.ec25p5e.util.QueryParams
-import com.example.data.responses.BasicApiResponse
+import com.ec25p5e.data.responses.BasicApiResponse
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.auth.*

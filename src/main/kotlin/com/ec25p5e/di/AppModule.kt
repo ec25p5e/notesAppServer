@@ -1,9 +1,12 @@
 package com.ec25p5e.di
 
+import com.ec25p5e.data.repository.note.NoteRepository
+import com.ec25p5e.data.repository.note.NoteRepositoryImpl
 import com.ec25p5e.data.repository.post.PostRepository
 import com.ec25p5e.data.repository.post.PostRepositoryImpl
 import com.ec25p5e.data.repository.user.UserRepositoryImpl
 import com.ec25p5e.data.repository.user.UserRepository
+import com.ec25p5e.service.NoteService
 import com.ec25p5e.service.PostService
 import com.ec25p5e.service.UserService
 import com.ec25p5e.util.Constants
@@ -28,9 +31,14 @@ val mainModule = module {
         PostRepositoryImpl(get())
     }
 
+    single<NoteRepository> {
+        NoteRepositoryImpl(get())
+    }
+
     // Services
     single { UserService(get()) }
     single { PostService(get()) }
+    single { NoteService(get()) }
 
     single { Gson() }
 }

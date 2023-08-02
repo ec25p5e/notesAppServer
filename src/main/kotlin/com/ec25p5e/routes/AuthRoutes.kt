@@ -4,9 +4,9 @@ package com.ec25p5e.routes
 import com.auth0.jwt.JWT
 import com.auth0.jwt.algorithms.Algorithm
 import com.ec25p5e.data.requests.CreateAccountRequest
-import com.example.data.requests.LoginRequest
+import com.ec25p5e.data.requests.LoginRequest
 import com.example.data.responses.AuthResponse
-import com.example.data.responses.BasicApiResponse
+import com.ec25p5e.data.responses.BasicApiResponse
 import com.ec25p5e.service.UserService
 import com.ec25p5e.util.ApiResponseMessages.FIELDS_BLANK
 import com.ec25p5e.util.ApiResponseMessages.INVALID_CREDENTIALS
