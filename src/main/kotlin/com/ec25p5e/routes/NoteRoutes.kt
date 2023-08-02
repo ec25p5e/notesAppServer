@@ -19,7 +19,7 @@ import io.ktor.server.routing.*
 fun Route.getNotes(
     noteService: NoteService
 ) {
-    authenticate {
+    // authenticate {
         post("/api/note/notes") {
             val request = call.receiveOrNull<NoteRequest>() ?: kotlin.run {
                 call.respond(HttpStatusCode.BadRequest)
@@ -41,13 +41,13 @@ fun Route.getNotes(
                 )
             )
         }
-    }
+    // }
 }
 
 fun Route.pushNotes(
     noteService: NoteService
 ) {
-    authenticate {
+    // authenticate {
         post("/api/note/push") {
             val request = call.receiveOrNull<List<PushNotesRequest>>() ?: kotlin.run {
                 call.respond(HttpStatusCode.BadRequest)
@@ -71,7 +71,7 @@ fun Route.pushNotes(
                 )
             )
         }
-    }
+    // }
 }
 
 fun Route.createNote(
