@@ -3,7 +3,6 @@ package com.ec25p5e.data.requests
 import com.ec25p5e.data.models.Note
 
 data class CreateNoteRequest(
-    val noteId: String,
     val userId: String,
     val title: String,
     val content: String,
@@ -22,14 +21,10 @@ data class CreateNoteRequest(
             color = createNote.color,
             isArchived = createNote.isArchived,
             categoryId = createNote.categoryId,
-            noteIdLocal = createNote.noteId
         )
     }
 
     fun isIncomplete(): Boolean {
-        if(noteId.isBlank())
-            return true
-
         if(userId.isBlank())
             return true
 
