@@ -5,6 +5,8 @@ import com.ec25p5e.data.requests.note.CreateNoteRequest
 
 data class CreateCategoryRequest(
     val userId: String,
+    val localId: Int,
+    val remoteId: String,
     val name: String,
     val color: Int,
     val timestamp: Long
@@ -13,6 +15,7 @@ data class CreateCategoryRequest(
     fun toCategory(): Category {
         return Category(
             userId = userId,
+            localId = localId,
             name = name,
             color = color,
             timestamp = timestamp
@@ -30,6 +33,9 @@ data class CreateCategoryRequest(
             return true
 
         if(timestamp.toString().isBlank())
+            return true
+
+        if(localId.toString().isBlank())
             return true
 
         return false

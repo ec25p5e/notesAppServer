@@ -10,6 +10,10 @@ data class PushNotesResponse(
     val timestamp: Long,
     val color: Int,
     val isArchived: Boolean,
+    val isLocked: Boolean,
+    val image: ArrayList<String>,
+    val background: String,
+    val isCopied: Int,
     val categoryId: Int,
 ) {
 

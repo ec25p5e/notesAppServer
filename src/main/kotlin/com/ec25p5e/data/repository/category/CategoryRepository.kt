@@ -6,7 +6,9 @@ import com.ec25p5e.data.responses.category.CategoryResponse
 
 interface CategoryRepository {
 
-    suspend fun createCategory(category: CreateCategoryRequest)
+    suspend fun createCategory(category: CreateCategoryRequest): CategoryResponse
+
+    suspend fun pushCategories(categories: List<CreateCategoryRequest>): List<CategoryResponse>
 
     suspend fun getCategories(data: GetCategoryRequest): List<CategoryResponse>
 }

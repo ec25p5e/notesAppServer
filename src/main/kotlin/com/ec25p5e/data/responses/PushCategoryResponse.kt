@@ -4,6 +4,7 @@ import com.ec25p5e.data.models.Category
 
 data class PushCategoryResponse(
     val categoryId: String,
+    val localId: Int,
     val userId: String,
     val name: String,
     val color: Int,
@@ -15,7 +16,8 @@ data class PushCategoryResponse(
             userId = userId,
             name = name,
             color = color,
-            timestamp = timestamp
+            timestamp = timestamp,
+            localId = localId
         )
     }
 }

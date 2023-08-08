@@ -5,6 +5,7 @@ import com.ec25p5e.data.requests.category.GetCategoryRequest
 import com.ec25p5e.data.responses.BasicApiResponse
 import com.ec25p5e.service.CategoryService
 import com.ec25p5e.util.ApiResponseMessages.CATEGORY_CREATE_SUCCESSFULLY
+import com.ec25p5e.util.ApiResponseMessages.CATEGORY_PUSHED_SUCCESSFULLY
 import com.ec25p5e.util.ApiResponseMessages.SUCCESSFULLY_FETCHED_CATEGORY
 import com.ec25p5e.util.ApiResponseMessages.SUCCESSFULLY_FETCHED_NOTE
 import io.ktor.http.*
@@ -29,13 +30,43 @@ fun Route.createCategory(
                 return@post
             }
 
-            categoryService.createCategory(request)
+            val response = categoryService.createCategory(request)
             call.respond(
                 HttpStatusCode.OK,
                 BasicApiResponse(
                     successful = true,
                     message = CATEGORY_CREATE_SUCCESSFULLY,
-                    data = null
+                    data = response
+                )
+            )
+        }
+    }
+}
+
+fun Route.pushCategories(
+    categoryService: CategoryService
+) {
+    authenticate {
+        post("/api/category/push") {
+            val request = call.receiveOrNull<List<CreateCategoryRequest>>() ?: kotlin.run {
+                call.respond(HttpStatusCode.BadRequest)
+                return@post
+            }
+
+            request.map {
+                if(it.isIncomplete()) {
+                    call.respond(HttpStatusCode.BadRequest)
+                    return@post
+                }
+            }
+
+            val response = categoryService.pushCategories(request)
+            call.respond(
+                HttpStatusCode.OK,
+                BasicApiResponse(
+                    successful = true,
+                    message = CATEGORY_PUSHED_SUCCESSFULLY,
+                    data = response
                 )
             )
         }

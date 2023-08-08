@@ -10,7 +10,7 @@ import io.ktor.server.netty.*
 import org.koin.core.context.startKoin
 
 fun main() {
-    embeddedServer(Netty, port = 8080, host = "192.168.183.107", module = Application::module)
+    embeddedServer(Netty, port = 8080, host = "192.168.233.107", module = Application::module)
         .start(wait = true)
 }
 

@@ -15,4 +15,5 @@ object ApiResponseMessages {
     const val NOTE_CREATE_SUCCESSFULLY = "Note is created successfully"
     const val NOTE_DELETED_SUCCESSFULLY = "Note is deleted successfully"
     const val CATEGORY_CREATE_SUCCESSFULLY = "Category created successfully"
+    const val CATEGORY_PUSHED_SUCCESSFULLY = "Category pushed successfully"
 }

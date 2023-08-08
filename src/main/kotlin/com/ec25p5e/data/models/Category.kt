@@ -5,6 +5,7 @@ import org.bson.types.ObjectId
 
 data class Category(
     val userId: String,
+    val localId: Int,
     val name: String,
     val color: Int,
     val timestamp: Long,

@@ -53,6 +53,7 @@ fun Application.configureRouting(appConfig: HoconApplicationConfig) {
         // Category routes
         createCategory(categoryService)
         getCategories(categoryService)
+        pushCategories(categoryService)
 
         static {
             resource("static")
