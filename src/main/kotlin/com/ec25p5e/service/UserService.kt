@@ -20,7 +20,8 @@ class UserService(
                 email = request.email,
                 username = request.username,
                 password = request.password,
-                profileImageUrl = Constants.DEFAULT_PROFILE_PICTURE_PATH
+                profileImageUrl = Constants.DEFAULT_PROFILE_PICTURE_PATH,
+                bannerUrl = Constants.DEFAULT_BANNER_IMAGE_PATH
             )
         )
     }
@@ -31,7 +32,9 @@ class UserService(
         return ProfileResponse(
             userId = user.id,
             email = user.email,
-            username = user.username
+            username = user.username,
+            profilePictureUrl = user.profileImageUrl,
+            bannerUrl = user.bannerUrl
         )
     }
 

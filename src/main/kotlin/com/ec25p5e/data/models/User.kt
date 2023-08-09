@@ -8,6 +8,7 @@ data class User(
     val username: String,
     val password: String,
     val profileImageUrl: String,
+    val bannerUrl: String?,
     @BsonId
     val id: String = ObjectId().toString()
 )
