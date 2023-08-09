@@ -6,5 +6,6 @@ data class CategoryResponse(
     val localId: Int,
     val name: String,
     val color: Int,
-    val timestamp: Long
+    val timestamp: Long,
+    val numNotesAssoc: Int,
 )

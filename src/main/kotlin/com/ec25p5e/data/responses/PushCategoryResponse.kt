@@ -8,7 +8,8 @@ data class PushCategoryResponse(
     val userId: String,
     val name: String,
     val color: Int,
-    val timestamp: Long
+    val timestamp: Long,
+    val numNotesAssoc: Int,
 ) {
 
     fun toCategory(): Category {
@@ -17,7 +18,8 @@ data class PushCategoryResponse(
             name = name,
             color = color,
             timestamp = timestamp,
-            localId = localId
+            localId = localId,
+            numNotesAssoc = numNotesAssoc
         )
     }
 }

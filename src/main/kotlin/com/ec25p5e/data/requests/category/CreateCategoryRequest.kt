@@ -9,7 +9,8 @@ data class CreateCategoryRequest(
     val remoteId: String,
     val name: String,
     val color: Int,
-    val timestamp: Long
+    val timestamp: Long,
+    val numNotesAssoc: Int,
 ) {
 
     fun toCategory(): Category {
@@ -18,7 +19,8 @@ data class CreateCategoryRequest(
             localId = localId,
             name = name,
             color = color,
-            timestamp = timestamp
+            timestamp = timestamp,
+            numNotesAssoc = numNotesAssoc,
         )
     }
 

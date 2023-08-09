@@ -28,7 +28,8 @@ class CategoryRepositoryImpl(
                 remoteId = category.categoryId,
                 name = category.name,
                 timestamp = category.timestamp,
-                color = category.color
+                color = category.color,
+                numNotesAssoc = category.numNotesAssoc
             )
         }[0]
     }
@@ -43,7 +44,8 @@ class CategoryRepositoryImpl(
                     localId = category.localId,
                     name = category.name,
                     color = category.color,
-                    timestamp = category.timestamp
+                    timestamp = category.timestamp,
+                    numNotesAssoc = category.numNotesAssoc
                 )
             }
     }
@@ -64,7 +66,8 @@ class CategoryRepositoryImpl(
                     localId = category.localId,
                     name = category.name,
                     color = category.color,
-                    timestamp = category.timestamp
+                    timestamp = category.timestamp,
+                    numNotesAssoc = category.numNotesAssoc
                 )
             }
     }

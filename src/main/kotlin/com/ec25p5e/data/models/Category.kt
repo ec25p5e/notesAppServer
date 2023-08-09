@@ -9,6 +9,7 @@ data class Category(
     val name: String,
     val color: Int,
     val timestamp: Long,
+    val numNotesAssoc: Int,
     @BsonId
     val categoryId: String = ObjectId().toString()
 )
